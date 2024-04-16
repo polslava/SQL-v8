@@ -1,0 +1,48 @@
+vist_pit_shov - соответствие id_ТС id_модели экскаватора
+vist_pit_shovelloadpassport - список паспортов загрузки
+vist_pit_shovelloadpassportitem - паспорта загрузки - количество ковшей по моделям
+vist_pit_shovelrateparams - объём ковша по моделям экскаватора
+vist_pit_shovelrateparamsitem - продолжительность цикла (сек) по видам погрузки и типу груза, справочник "Нормативные показатели экскаваторов", время цикла cycle_time
+vist_core_loadtype - справочник типов груза id, is_volume
+vist_core_worktype - справочник видов работ
+
+vist_pit_rocktype - типы пород (не нужен, пока)
+
+/*vist_pit_loadtype - справочник типов груза
+vist_pit_worktype - справочник видов работ*/
+
+vist_pit_shoveshifttask - сменное задание экскаваторов
+vist_pit_shovmodel - объём ковша по экскаваторам
+
+vist_pit_shiftmonthplan - список планов экскваторов
+vist_pit_shiftmonthplanfactvolume - плановый объём по сменам и видам работ
+vist_pit_shiftmonthplandetails - сопоставление деталей и списка планов
+	- связь списка планов и сменных планов экскаватора
+vist_pit_shiftplanmethod - сопоставление смены и плана (?)
+
+vist_core_vehicle - список ТС
+vist_core_vehicletype - список типов ТС
+vist_core_model - список моделей ТС
+
+vist_pit_shoveltripnorm - даты и список норм рейсов от экскаватора на каждый самосвал
+vist_pit_shoveltripnormitem - нормы рейсов по моделям самосвалов на каждый маршрут (то есть рейсов для самосвала на указанное расстояние с видом груза)
+
+
+vist_core_shiftidlestat - статистика простоев за смену по типам простоев
+vist_core_idletype - список типов простоев
+vist_core_analyticcategory - список аналитических категорий (влияние на КТГ и КИО)
+vist_core_idle - простои ТС automatic_reason_id, driver_reason_id
+vist_core_intervalpointshift - перемещения и остановки (idle_type_id есть)
+
+связь машиниста со сменным заданием
+	LEFT JOIN v8.vist_city_shifttask st
+ 		ON st.shift_id = sel_0.shift AND st.task_date = sel_0.shiftdate AND st.vehicle_id=sel_0.shov_id
+ 	LEFT JOIN v8.vist_enterprise_employee ee
+ 		ON ee.id = st.driver_id
+ 	LEFT JOIN v8.vist_enterprise_person ep
+ 		ON ep.id = ee.person_id
+ 	LEFT JOIN v8.vist_core_vehicle veh
+ 		ON veh.id = sel_0.shov_id    
+ 	WHERE veh.name IN ('06292№4','06322_№7','20292№2','Bucyrus1','Bucyrus2',
+		 'Ex_2500 №5','Ex_2600 №3','Ex_3600 №8','PC1250_№1','PC4000_№10','PC4000_№11','PC4000_№9',
+		 'XCMG XE2000 №6','ЭКГ-5А(8185)')

@@ -1,0 +1,16 @@
+vist_pit_shov - соответствие id_ТС id_модели экскаватора
+vist_pit_shovelloadpassport - список паспортов загрузки
+vist_pit_shovelloadpassportitem - паспорта загрузки - количество ковшей по моделям
+vist_pit_shovelrateparams - объём ковша по моделям
+vist_pit_shovelrateparamsitem - продолжительность цикла (сек)
+
+vist_pit_shoveshifttask - сменное задание экскаваторов
+vist_pit_shovmodel - объём ковша по экскаваторам
+vist_pit_shiftmonthplanfactvolume - плановый объём по сменам и видам работ
+vist_pit_shiftmonthplandetails - сопоставление деталей и списка планов
+
+vist_pit_shiftmonthplan - список планов экскваторов
+vist_pit_shiftplanmethod - сопоставление смены и плана
+
+vist_core_vehicle - список ТС
+vist_core_vehicletype - список типов ТС

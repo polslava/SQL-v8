@@ -1,0 +1,29 @@
+vist_pit_shov - соответствие id_ТС id_модели экскаватора
+vist_pit_shovelloadpassport - список паспортов загрузки
+vist_pit_shovelloadpassportitem - паспорта загрузки - количество ковшей по моделям
+vist_pit_shovelrateparams - объём ковша по моделям
+vist_pit_shovelrateparamsitem - продолжительность цикла (сек)
+
+vist_pit_shoveshifttask - сменное задание экскаваторов
+vist_pit_shovmodel - объём ковша по экскаваторам
+vist_pit_shiftmonthplanfactvolume - плановый объём по сменам и видам работ
+vist_pit_shiftmonthplandetails - сопоставление деталей и списка планов
+
+vist_pit_shiftmonthplan - список планов экскваторов
+vist_pit_shiftplanmethod - сопоставление смены и плана
+
+vist_core_vehicle - список ТС
+vist_core_vehicletype - список типов ТС
+
+связь машиниста со сменным заданием
+	LEFT JOIN v8.vist_city_shifttask st
+ 		ON st.shift_id = sel_0.shift AND st.task_date = sel_0.shiftdate AND st.vehicle_id=sel_0.shov_id
+ 	LEFT JOIN v8.vist_enterprise_employee ee
+ 		ON ee.id = st.driver_id
+ 	LEFT JOIN v8.vist_enterprise_person ep
+ 		ON ep.id = ee.person_id
+ 	LEFT JOIN v8.vist_core_vehicle veh
+ 		ON veh.id = sel_0.shov_id    
+ 	WHERE veh.name IN ('06292№4','06322_№7','20292№2','Bucyrus1','Bucyrus2',
+		 'Ex_2500 №5','Ex_2600 №3','Ex_3600 №8','PC1250_№1','PC4000_№10','PC4000_№11','PC4000_№9',
+		 'XCMG XE2000 №6','ЭКГ-5А(8185)')
